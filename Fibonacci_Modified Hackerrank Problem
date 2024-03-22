@@ -25,12 +25,20 @@ class Result {
     public static BigInteger fibonacciModified(int t1, int t2, int n) {
     // Write your code here
         BigInteger[] bigIntArray = new BigInteger[n]; 
-        bigIntArray[0] =BigInteger.valueOf(t1);;
-        bigIntArray[1] = BigInteger.valueOf(t2);
-        for(int i=0; i<n-2; i++) {
-        bigIntArray[i+2] = (bigIntArray[i+1].multiply(bigIntArray[i+1])).add(bigIntArray[i]);
+        if (n == 1) {
+            return t1;
         }
-        return bigIntArray[n-1];
+        else if (n == 2) {
+            return t2;
+        }
+        else {
+            bigIntArray[0] =BigInteger.valueOf(t1);;
+            bigIntArray[1] = BigInteger.valueOf(t2);
+            for(int i=0; i < n-2; i++) {
+               bigIntArray[i+2] = (bigIntArray[i+1].multiply(bigIntArray[i+1])).add(bigIntArray[i]);
+            }
+            return bigIntArray[n-1];
+        }
     }
 
 }
